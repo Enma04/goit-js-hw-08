@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function() {
       switch (error.name) {
           case 'RangeError':
               // the time was less than 0 or greater than the video’s duration
-              alert("Tiempo por debajo de 0 o excedido del frame del video");
+              console.log("Tiempo por debajo de 0 o excedido del frame del video");
               break;
 
           default:
               // some other error occurred
-              alert("ocurrió un error diferente");
+              console.log("ocurrió un error diferente");
               break;
       }
   });
