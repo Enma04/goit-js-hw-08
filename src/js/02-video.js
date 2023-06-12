@@ -13,11 +13,21 @@ player.getVideoTitle().then(function(title) {
   console.log('title:', title);
 });
 
+
 //captura del segundo exacto donde está el video (localStorage)
-player.on('timeupdate', (obj) =>{
+
+//Versión de la escucha original (250 ms)
+/* player.on('timeupdate', (obj) => {
   localStorage.setItem("videoplayer-current-time", obj.seconds);
   console.log(localStorage.getItem("videoplayer-current-time"));
-});
+}); */
+
+//Versión de 1 segundo con librería throttle
+player.on('timeupdate', _.throttle((obj) => {
+  localStorage.setItem("videoplayer-current-time", obj.seconds);
+  console.log(localStorage.getItem("videoplayer-current-time"));
+}, 1000));
+
 
 
 
